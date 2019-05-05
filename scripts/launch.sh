@@ -27,4 +27,4 @@ echo ""
 
 # Run the setup playbook
 cd $repodir
-ansible-playbook -l localhost playbooks/setup.yaml
+ansible-playbook-3.6 -l localhost playbooks/setup.yaml
