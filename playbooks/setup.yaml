@@ -2,8 +2,8 @@
 - name: jail setup
   hosts: all
   roles:
-    #- clitools
-    #- shell
     - usersandgroups
     - security
     - sshd
+    - clitools
+    - shell
