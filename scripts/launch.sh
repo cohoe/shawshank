@@ -8,7 +8,7 @@ if ("$uidnumber" != "0") then
 endif
 
 # Install required packages
-/usr/sbin/pkg install -y git py36-ansible python36
+/usr/sbin/pkg install -y git py36-ansible python3
 
 # Clone the repo
 set repodir = "/root/shawshank"
