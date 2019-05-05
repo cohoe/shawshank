@@ -3,7 +3,9 @@
   hosts: all
   roles:
     - usersandgroups
+    - sudo
     - security
     - sshd
     - clitools
     - shell
+    - avahi

@@ -14,7 +14,17 @@
   loop_control:
     loop_var: task_item
 
-- name: install dotfiles
+- name: install user dotfiles
+  copy:
+    dest: "~grant/.{{ item }}"
+    src: "{{ item }}"
+    backup: yes
+  with_items:
+    - vimrc
+    - screenrc
+    - tmux.conf
+
+- name: install root dotfiles
   copy:
     dest: "~/.{{ item }}"
     src: "{{ item }}"

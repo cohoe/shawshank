@@ -1,0 +1,15 @@
+---
+- name: install
+  package:
+    name:
+      - sudo
+    state: present
+
+- name: configure wheel for passwordless sudo
+  copy:
+    dest: /usr/local/etc/sudoers.d/01-wheel
+    mode: 0644
+    owner: root
+    group: wheel
+    content: |
+      %wheel  ALL=(ALL) NOPASSWD: ALL

@@ -4,4 +4,6 @@
     name:
       - vim-console
       - git
+      - wget
+      - gtar
     state: present

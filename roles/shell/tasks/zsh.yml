@@ -3,18 +3,35 @@
 - name: install zshrc
   copy:
     src: zsh/zshrc
-    dest: ~/.zshrc
+    dest: "~{{ item }}/.zshrc"
+  with_items:
+    - root
+    - grant
 
 - name: download oh-my-zsh
   git:
     repo: "{{ ohmyzsh_repo }}"
-    dest: "{{ ohmyzsh_directory }}"
+    dest: "~{{ item }}/{{ ohmyzsh_directory }}"
     force: yes
+  with_items:
+    - root
+    - grant
 
-- name: insert custom ohmyzsh config
+- name: insert custom ohmyzsh config for user
   copy:
     src: "zsh/{{ item }}"
-    dest: "{{ ohmyzsh_directory }}/custom/{{ item }}"
+    dest: "~grant/{{ ohmyzsh_directory }}/custom/{{ item }}"
+    backup: yes
+  with_items:
+    - aliases.zsh
+    - environment.zsh
+    - path.zsh
+    - gt.zsh
+
+- name: insert custom ohmyzsh config for root
+  copy:
+    src: "zsh/{{ item }}"
+    dest: "/root/{{ ohmyzsh_directory }}/custom/{{ item }}"
     backup: yes
   with_items:
     - aliases.zsh
@@ -24,6 +41,9 @@
 
 - name: "set user shell"
   user:
-    name: "{{ ansible_user_id }}"
+    name: "{{ item }}"
     shell: /usr/local/bin/zsh
   become: yes
+  with_items:
+    - root
+    - grant

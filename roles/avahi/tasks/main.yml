@@ -1,0 +1,22 @@
+---
+- name: install packages
+  package:
+    name:
+      - avahi
+      - nss_mdns
+    state: present
+
+- name: enable services
+  service:
+    name: "{{ item }}"
+    state: started
+    enabled: yes
+  with_items:
+    - dbus
+    - avahi-daemon
+
+- name: enable mdns resolution
+  lineinfile:
+    dest: /etc/nsswitch.conf
+    regexp: "^hosts:"
+    line: "hosts: files dns mdns"
