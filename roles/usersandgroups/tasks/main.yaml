@@ -27,6 +27,10 @@
       gid: 2002
     - name: camp-rw
       gid: 2003
+    - name: lancache-rw
+      gid: 2004
+    - name: lancache-ro
+      gid: 2005
 
 - name: create users
   user:
