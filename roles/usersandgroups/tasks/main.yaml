@@ -1,0 +1,65 @@
+---
+- name: create groups
+  group:
+    name: "{{ item.name }}"
+    gid: "{{ item.gid }}"
+    state: present
+  with_items:
+    - name: grant
+      gid: 1001
+    - name: public_users
+      gid: 1002
+    - name: deluge
+      gid: 1003
+    - name: seeders
+      gid: 1004
+    - name: tv
+      gid: 1005
+    - name: sickrage
+      gid: 1006
+    - name: couchpotato
+      gid: 1007
+    - name: media-rw
+      gid: 2000
+    - name: media-ro
+      gid: 2001
+    - name: camp-ro
+      gid: 2002
+    - name: camp-rw
+      gid: 2003
+
+- name: create users
+  user:
+    name: "{{ item.name }}"
+    uid: "{{ item.uid }}"
+    append: yes
+    state: present
+    groups: "{{ item.groups }}"
+  with_items:
+    - name: grant
+      uid: 1001
+      groups:
+        - grant
+        - wheel
+        - public_users
+        - seeders
+        - tv
+        - media-rw
+        - camp-rw
+    - name: camper
+      uid: 1002
+      groups:
+        - public_users
+        - camp-rw
+    - name: deluge
+      uid: 1003
+      groups:
+        - seeders
+    - name: sickrage
+      uid: 1005
+      groups:
+        - seeders
+    - name: couchpotato
+      uid: 1006
+      groups:
+        - seeders

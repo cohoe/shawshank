@@ -1,0 +1,6 @@
+- name: create home subdirs
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - '~/.bin'

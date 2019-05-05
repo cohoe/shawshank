@@ -1,0 +1,7 @@
+---
+- name: system tools
+  package:
+    name:
+      - vim-console
+      - git
+    state: present

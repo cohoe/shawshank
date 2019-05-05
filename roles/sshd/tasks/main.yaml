@@ -1,0 +1,12 @@
+---
+- name: enable root login
+  lineinfile:
+    path: /etc/ssh/sshd_config
+    regexp: "PermitRootLogin(.*)$"
+    line: PermitRootLogin yes
+
+- name: configure service
+  service:
+    name: sshd
+    state: started
+    enabled: yes

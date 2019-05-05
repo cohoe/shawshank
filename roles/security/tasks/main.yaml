@@ -1,0 +1,7 @@
+- name: Add SSH keys
+  authorized_key:
+    user: "{{ item }}"
+    key: https://github.com/cohoe.keys
+  with_items:
+    - root
+    - grant

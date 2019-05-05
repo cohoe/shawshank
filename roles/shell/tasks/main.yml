@@ -1,0 +1,25 @@
+---
+- name: install shell packages
+  package:
+    name:
+      - zsh
+      - tmux
+    state: latest
+
+- include_tasks: "{{ task_item }}"
+  with_items:
+    - homedir.yml
+    - zsh.yml
+    - git.yml
+  loop_control:
+    loop_var: task_item
+
+- name: install dotfiles
+  copy:
+    dest: "~/.{{ item }}"
+    src: "{{ item }}"
+    backup: yes
+  with_items:
+    - vimrc
+    - screenrc
+    - tmux.conf
