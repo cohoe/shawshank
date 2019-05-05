@@ -4,6 +4,7 @@
     name:
       - zsh
       - tmux
+      - bash
     state: latest
 
 - include_tasks: "{{ task_item }}"
