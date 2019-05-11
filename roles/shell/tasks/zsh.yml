@@ -47,3 +47,11 @@
   with_items:
     - root
     - grant
+
+- name: theme
+  copy:
+    src: "zsh/grant.zsh-theme"
+    dest: "~{{ item }}/{{ ohmyzsh_directory}}/custom/themes/grant.zsh-theme"
+  with_items:
+    - root
+    - grant
