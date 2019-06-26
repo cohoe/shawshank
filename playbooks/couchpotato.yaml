@@ -1,0 +1,50 @@
+---
+- name: couchpotato
+  hosts: all
+  tasks:
+    - package:
+        name:
+          - py27-sqlite3
+          - fpc-libcurl
+          - docbook-xml
+          - git-lite
+          - unrar
+        state: present
+  
+    - git:
+        repo: https://github.com/CouchPotato/CouchPotatoServer.git
+        dest: /usr/local/CouchPotatoServer
+        force: yes
+
+    - file:
+        path: "{{ item }}"
+        state: directory
+        owner: couchpotato
+        group: couchpotato
+      with_items:
+        - /var/couchpotato
+        - /var/couchpotato/logs
+
+    - file:
+        src: /var/couchpotato/logs
+        dest: /var/log/couchpotato
+        state: link
+
+    - copy:
+        src: /usr/local/CouchPotatoServer/init/freebsd
+        dest: /usr/local/etc/rc.d/couchpotato
+        remote_src: yes
+        mode: 0755
+
+    - service:
+        name: couchpotato
+        enabled: yes
+        state: running
+
+    - lineinfile:
+        path: /etc/rc.conf
+        line: "{{ item }}"
+        insertafter: ^couchpotato_enable*
+      with_items:
+        - couchpotato_user="couchpotato"
+        - couchpotato_datadir="/var/couchpotato"

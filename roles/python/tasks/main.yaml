@@ -1,0 +1,18 @@
+---
+- name: install python2 common
+  package:
+    name: python2
+    state: present
+
+# https://www.python.org/dev/peps/pep-0394/
+- name: link version
+  file:
+    src: /usr/local/bin/python2
+    dest: /usr/local/bin/python
+    state: link
+
+- name: link system
+  file:
+    src: /usr/local/bin/python
+    dest: /usr/bin/python
+    state: link
