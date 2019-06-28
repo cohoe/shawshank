@@ -6,4 +6,5 @@
       - git
       - wget
       - gtar
+      - gmake
     state: present

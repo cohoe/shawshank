@@ -9,4 +9,4 @@ all:
   children:
     jails:
       hosts:
-        puppet.boston.grantcohoe.com:
+        couchpotato.local:
