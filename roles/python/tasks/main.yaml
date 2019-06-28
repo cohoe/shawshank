@@ -16,3 +16,15 @@
     src: /usr/local/bin/python
     dest: /usr/bin/python
     state: link
+
+- name: install python tools
+  package:
+    name:
+      - py27-pip
+      - py36-pip
+      - py27-virtualenv
+      - py36-virtualenv
+      - py27-virtualenvwrapper
+    state: present
+
+# @TODO . /usr/local/bin/virtualenvwrapper.sh

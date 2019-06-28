@@ -7,4 +7,5 @@
       - wget
       - gtar
       - gmake
+      - rsync
     state: present

@@ -27,6 +27,7 @@
     - environment.zsh
     - path.zsh
     - gt.zsh
+    - virtualenv.zsh
 
 - name: insert custom ohmyzsh config for root
   copy:
@@ -38,6 +39,7 @@
     - environment.zsh
     - path.zsh
     - gt.zsh
+    - virtualenv.zsh
 
 - name: "set user shell"
   user:

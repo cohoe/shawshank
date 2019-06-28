@@ -1,0 +1,8 @@
+---
+- name: web
+  hosts: all
+  tasks:
+    - package:
+      name:
+        - py27-pillow
+        - openjdk8
