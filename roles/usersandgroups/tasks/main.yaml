@@ -67,3 +67,7 @@
       uid: 1006
       groups:
         - seeders
+    - name: www
+      uid: 80
+      groups:
+        - camp-ro

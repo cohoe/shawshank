@@ -1,0 +1,8 @@
+---
+- name: install cert
+  copy:
+    src: tars-ca.crt
+    dest: /etc/ssl/tars-ca.crt
+    owner: root
+    group: wheel
+    mode: 0644

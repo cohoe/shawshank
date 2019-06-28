@@ -10,3 +10,4 @@
     - shell
     - avahi
     - python
+    - ssl
