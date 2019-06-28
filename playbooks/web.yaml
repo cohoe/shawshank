@@ -3,7 +3,23 @@
   hosts: all
   tasks:
     - package:
-      name:
-        - py27-pillow
-        - openjdk8
-        - apache24
+        name:
+          - py27-pillow
+          - openjdk8
+          - apache24
+        state: present
+
+    - copy:
+        content: |
+          <h1>TARS HTTP Filesystem</h1>
+          <pre>
+          "Before you get all teary, try to remember that as a robot, I 
+          have to do anything you say." 
+           -- TARS, Interstellar 
+          </pre>
+        dest: /mnt/readme.html
+
+    - service:
+        name: apache24
+        enabled: yes
+        state: started
