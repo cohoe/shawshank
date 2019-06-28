@@ -9,6 +9,8 @@
           - docbook-xml
           - git-lite
           - unrar
+          - py27-openssl
+          - py27-lxml
         state: present
   
     - git:
