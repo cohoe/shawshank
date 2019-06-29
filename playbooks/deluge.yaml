@@ -1,0 +1,39 @@
+---
+- name: deluge
+  hosts: all
+  tasks:
+    - package:
+        name:
+          - deluge
+          - deluge-cli
+        state: present
+
+    - lineinfile:
+        path: /etc/rc.conf
+        line: "{{ item }}"
+      with_items:
+        - deluged_user="deluge"
+        - deluged_logfile="/var/log/deluge/deluged.log"
+        - deluged_loglevel="info"
+        - deluge_web_logfile=/var/log/deluge/web.log
+        - deluged_loglevel=info
+        - deluge_web_user="deluge"
+
+    - file:
+        path: "{{ item }}"
+        state: directory
+        owner: deluge
+        group: deluge
+      with_items:
+        - /home/deluge/.config/deluge
+        - /var/log/deluge
+
+    - service:
+        name: deluged
+        state: started
+        enabled: yes
+
+    - service:
+        name: deluge_web
+        state: started
+        enabled: yes
