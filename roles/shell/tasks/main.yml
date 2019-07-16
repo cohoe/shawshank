@@ -34,3 +34,9 @@
     - vimrc
     - screenrc
     - tmux.conf
+
+- name: login.conf
+  copy:
+    src: login.conf
+    dest: /etc/login.conf
+  notify: mkcap

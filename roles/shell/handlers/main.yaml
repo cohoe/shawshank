@@ -1,0 +1,4 @@
+---
+- name: mkcap
+  shell:
+    cmd: cap_mkdb /etc/login.conf
