@@ -2,11 +2,12 @@
 all:
   vars:
     ansible_python_interpreter: /usr/local/bin/python3
-    ansible_user: root
-  hosts:
-    localhost:
-      ansible_connection: local
   children:
     jails:
       hosts:
         couchpotato.local:
+        deluge.local:
+        homeassistant.local:
+        unifi.local:
+        puppet.local:
+        lancache.local:
