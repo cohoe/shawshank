@@ -2,6 +2,9 @@
 all:
   vars:
     ansible_python_interpreter: /usr/local/bin/python3
+  hosts:
+    localhost:
+      ansible_connection: local
   children:
     jails:
       hosts:
