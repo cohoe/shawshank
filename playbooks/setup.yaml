@@ -11,5 +11,3 @@
     - avahi
     - python
     - ssl
-  vars:
-    ansible_user: root
