@@ -38,11 +38,6 @@
         remote_src: yes
         mode: 0755
 
-    - service:
-        name: couchpotato
-        enabled: yes
-        state: running
-
     - lineinfile:
         path: /etc/rc.conf
         line: "{{ item }}"
@@ -50,3 +45,8 @@
       with_items:
         - couchpotato_user="couchpotato"
         - couchpotato_datadir="/var/couchpotato"
+
+    - service:
+        name: couchpotato
+        enabled: yes
+        state: running

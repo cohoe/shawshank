@@ -1,0 +1,49 @@
+---
+- name: sickchill
+  hosts: all
+  tasks:
+    - package:
+        name:
+          - py27-sqlite3
+          - py27-openssl
+        state: present
+
+    - file:
+        path: "{{ item }}"
+        state: directory
+        owner: sickrage
+        group: sickrage
+      with_items:
+        - /usr/local/sickchill
+        - /var/sickchill
+        - /var/sickchill/Logs
+
+    - git:
+        repo: https://github.com/SickChill/SickChill
+        dest: /usr/local/sickchill
+      become: yes
+      become_user: sickrage
+
+    - copy:
+        src: /usr/local/sickchill/runscripts/init.freebsd
+        dest: /usr/local/etc/rc.d/sickchill
+        remote_src: yes
+        mode: 0755
+
+    - lineinfile:
+        path: /etc/rc.conf
+        line: "{{ item }}"
+        insertafter: ^sickchill_enable*
+      with_items:
+        - sickchill_user="sickrage"
+        - sickchill_group="sickrage"
+        - sickchill_datadir="/var/sickchill"
+
+    - file:
+        src: /var/sickchill/Logs
+        dest: /var/log/sickchill
+        state: link
+
+    - service:
+        name: sickchill
+        enabled: yes
