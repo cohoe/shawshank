@@ -32,7 +32,7 @@
     - name: lancache-ro
       gid: 2005
 
-- name: create users
+- name: create real users
   user:
     name: "{{ item.name }}"
     uid: "{{ item.uid }}"
@@ -55,6 +55,23 @@
       groups:
         - public_users
         - camp-rw
+    - name: counselor
+      uid: 1008
+      groups:
+        - camp-rw
+        - camp-ro
+
+# @TODO this is not tested in all places!
+- name: create system users
+  user:
+    name: "{{ item.name }}"
+    uid: "{{ item.uid }}"
+    append: yes
+    state: present
+    groups: "{{ item.groups }}"
+    home: /nonexistant
+    shell: /usr/sbin/nologin
+  with_items:
     - name: deluge
       uid: 1003
       groups:
@@ -69,5 +86,9 @@
         - seeders
     - name: www
       uid: 80
+      groups:
+        - camp-ro
+    - name: plex
+      uid: 972
       groups:
         - camp-ro

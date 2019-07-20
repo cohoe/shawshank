@@ -8,4 +8,5 @@
       - gtar
       - gmake
       - rsync
+      - ncdu
     state: present

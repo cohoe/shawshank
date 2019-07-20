@@ -1,0 +1,27 @@
+---
+- name: plex
+  hosts: all
+  tasks:
+    - package:
+        name:
+          - plexmediaserver-plexpass
+        state: present
+
+    - file:
+        path: "{{ item }}"
+        state: directory
+        owner: plex
+        group: plex
+      with_items:
+        - "/usr/local/plexdata-plexpass"
+        - "/usr/local/plexdata-plexpass/Plex Media Server"
+        - "/usr/local/plexdata-plexpass/Plex Media Server/Logs"
+
+    - file:
+        src: "/usr/local/plexdata-plexpass/Plex Media Server/Logs"
+        dest: /var/log/plex
+        state: link
+
+    - service:
+        name: plexmediaserver_plexpass
+        enabled: yes

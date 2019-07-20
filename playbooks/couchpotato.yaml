@@ -49,4 +49,3 @@
     - service:
         name: couchpotato
         enabled: yes
-        state: running
