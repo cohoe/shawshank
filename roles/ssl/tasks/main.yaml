@@ -6,3 +6,10 @@
     owner: root
     group: wheel
     mode: 0644
+
+- name: trust cert
+  blockinfile:
+    dest: /etc/ssl/cert.pem
+    block: "{{ lookup('file', '/etc/ssl/tars-ca.crt') }}"
+    insertafter: "##  End of file"
+    backup: yes
