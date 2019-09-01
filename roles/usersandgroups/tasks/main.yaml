@@ -80,10 +80,12 @@
       uid: 1005
       groups:
         - seeders
+        - media-rw
     - name: couchpotato
       uid: 1006
       groups:
         - seeders
+        - media-rw
     - name: www
       uid: 80
       groups:
