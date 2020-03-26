@@ -19,6 +19,8 @@
       gid: 1006
     - name: couchpotato
       gid: 1007
+    - name: homeassistant
+      gid: 1009
     - name: media-rw
       gid: 2000
     - name: media-ro
@@ -94,3 +96,5 @@
       uid: 972
       groups:
         - camp-ro
+    - name: homeassistant
+      uid: 1009

@@ -1,0 +1,22 @@
+---
+- name: install rc file
+  copy:
+    src: rc.sh
+    dest: /usr/local/etc/rc.d/homeassistant
+    mode: 0755
+
+- name: configure
+  lineinfile:
+    path: /etc/rc.conf
+    line: "{{ item }}"
+    insertafter: ^homeassistant_enable*
+  with_items:
+    - homeassistant_user="homeassistant"
+    - homeassistant_group="homeassistant"
+    - homeassistant_venv="/opt/hass/homeassistant37"
+    - homeassistant_config_dir="/opt/hass"
+
+- name: enable service
+  service:
+    name: homeassistant
+    enabled: yes

@@ -8,7 +8,7 @@ if ("$uidnumber" != "0") then
 endif
 
 # Install required packages
-/usr/sbin/pkg install -y git py36-ansible python3
+/usr/sbin/pkg install -y git py37-ansible python37
 
 # Clone the repo
 set repodir = "/root/shawshank"
@@ -22,9 +22,9 @@ endif
 echo "SUCCESS: You're all set!"
 echo ""
 echo "The repo is at $repodir. An example run would be:"
-echo "  ansible-playbook-3.6 -l localhost playbooks/setup.yaml"
+echo "  ansible-playbook-3.7 -l localhost playbooks/setup.yaml"
 echo ""
 
 # Run the setup playbook
 cd $repodir
-ansible-playbook-3.6 -c local -l localhost playbooks/setup.yaml
+ansible-playbook-3.7 -c local -l localhost playbooks/setup.yaml

@@ -1,7 +1,9 @@
 ---
-- name: install python2 common
+- name: install common python
   package:
-    name: python2
+    name:
+      - python2
+      - python37
     state: present
 
 # https://www.python.org/dev/peps/pep-0394/
@@ -21,9 +23,9 @@
   package:
     name:
       - py27-pip
-      - py36-pip
+      - py37-pip
       - py27-virtualenv
-      - py36-virtualenv
+      - py37-virtualenv
       - py27-virtualenvwrapper
     state: present
 
