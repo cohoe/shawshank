@@ -15,7 +15,7 @@
       gid: 1004
     - name: tv
       gid: 1005
-    - name: sickrage
+    - name: sickchill
       gid: 1006
     - name: couchpotato
       gid: 1007
@@ -78,7 +78,7 @@
       uid: 1003
       groups:
         - seeders
-    - name: sickrage
+    - name: sickchill
       uid: 1005
       groups:
         - seeders

@@ -9,4 +9,5 @@
       - gmake
       - rsync
       - ncdu
+      - unrar
     state: present

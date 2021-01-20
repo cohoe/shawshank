@@ -2,29 +2,22 @@
 - name: sickchill
   hosts: all
   tasks:
-    - package:
-        name:
-          - py27-sqlite3
-          - py27-openssl
-          - py27-feedparser
-          - unrar
-        state: present
+    - git:
+        repo: https://github.com/SickChill/SickChill
+        dest: /usr/local/sickchill
+      become: yes
+      become_user: sickchill
 
     - file:
         path: "{{ item }}"
         state: directory
-        owner: sickrage
-        group: sickrage
+        owner: sickchill
+        group: sickchill
       with_items:
         - /usr/local/sickchill
         - /var/sickchill
         - /var/sickchill/Logs
 
-    - git:
-        repo: https://github.com/SickChill/SickChill
-        dest: /usr/local/sickchill
-      become: yes
-      become_user: sickrage
 
     - copy:
         src: /usr/local/sickchill/runscripts/init.freebsd
@@ -37,8 +30,8 @@
         line: "{{ item }}"
         insertafter: ^sickchill_enable*
       with_items:
-        - sickchill_user="sickrage"
-        - sickchill_group="sickrage"
+        - sickchill_user="sickchill"
+        - sickchill_group="sickchill"
         - sickchill_datadir="/var/sickchill"
 
     - file:

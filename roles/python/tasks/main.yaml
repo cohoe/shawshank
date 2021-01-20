@@ -3,6 +3,8 @@
   package:
     name:
       - python37
+      - libxml2
+      - libxslt
     state: present
 
 # https://www.python.org/dev/peps/pep-0394/
