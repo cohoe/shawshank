@@ -78,7 +78,7 @@
       uid: 1003
       groups:
         - seeders
-    - name: sickchill
+    - name: sickrage
       uid: 1005
       groups:
         - seeders
