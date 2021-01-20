@@ -6,6 +6,7 @@
         name:
           - py27-sqlite3
           - py27-openssl
+          - py27-feedparser
           - unrar
         state: present
 

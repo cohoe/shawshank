@@ -27,6 +27,8 @@
       - py27-virtualenv
       - py37-virtualenv
       - py27-virtualenvwrapper
+      - py37-sqlite3
+      - py27-sqlite3
     state: present
 
 # @TODO . /usr/local/bin/virtualenvwrapper.sh
