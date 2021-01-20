@@ -40,7 +40,7 @@
     uid: "{{ item.uid }}"
     append: yes
     state: present
-    groups: "{{ item.groups }}"
+    groups: "{{ item.groups | default([]) }}"
   with_items:
     - name: grant
       uid: 1001
@@ -70,7 +70,7 @@
     uid: "{{ item.uid }}"
     append: yes
     state: present
-    groups: "{{ item.groups }}"
+    groups: "{{ item.groups | default([]) }}"
     home: /nonexistant
     shell: /usr/sbin/nologin
   with_items:
@@ -78,7 +78,7 @@
       uid: 1003
       groups:
         - seeders
-    - name: sickrage
+    - name: sickchill
       uid: 1005
       groups:
         - seeders
