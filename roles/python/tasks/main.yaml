@@ -8,14 +8,14 @@
 # https://www.python.org/dev/peps/pep-0394/
 - name: link version
   file:
-    src: /usr/local/bin/python3
-    dest: /usr/local/bin/python3.7
+    src: /usr/local/bin/python3.7
+    dest: /usr/local/bin/python3
     state: link
 
 - name: link system
   file:
-    src: /usr/local/bin/python
-    dest: /usr/bin/python
+    src: /usr/local/bin/python3
+    dest: /usr/bin/python3
     state: link
 
 - name: install python tools
