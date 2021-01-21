@@ -10,4 +10,5 @@
       - rsync
       - ncdu
       - unrar
+      - htop
     state: present

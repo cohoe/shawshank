@@ -18,6 +18,10 @@
         - /var/sickchill
         - /var/sickchill/Logs
 
+    - file:
+        src: /usr/local/bin/git
+        dest: /bin/git
+        state: link
 
     - copy:
         src: /usr/local/sickchill/runscripts/init.freebsd
