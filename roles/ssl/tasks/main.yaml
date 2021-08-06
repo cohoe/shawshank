@@ -1,7 +1,7 @@
 ---
 - name: install cert
-  copy:
-    src: tars-ca.crt
+  get_url:
+    url: https://archive.grantcohoe.com/tars-ca.crt
     dest: /etc/ssl/tars-ca.crt
     owner: root
     group: wheel
