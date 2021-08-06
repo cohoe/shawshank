@@ -97,6 +97,7 @@
       uid: 80
       groups:
         - camp-ro
+        - owncloud-ro
     - name: plex
       uid: 972
       groups:
