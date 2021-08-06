@@ -33,6 +33,10 @@
       gid: 2004
     - name: lancache-ro
       gid: 2005
+    - name: owncloud-rw
+      gid: 2006
+    - name: owncloud-ro
+      gid: 2007
 
 - name: create real users
   user:
@@ -52,6 +56,7 @@
         - tv
         - media-rw
         - camp-rw
+        - owncloud-rw
     - name: camper
       uid: 1002
       groups:
@@ -98,3 +103,11 @@
         - camp-ro
     - name: homeassistant
       uid: 1009
+    - name: lancache
+      uid: 1010
+    - name: puppet
+      uid: 1011
+    - name: owncloud
+      uid: 1012
+      groups:
+        - owncloud-rw
