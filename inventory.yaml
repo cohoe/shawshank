@@ -8,11 +8,12 @@ all:
   children:
     jails:
       hosts:
-        couchpotato.local:
-        deluge.local:
-        homeassistant.local:
-        unifi.local:
-        puppet.local:
-        lancache.local:
-        sickchill.local:
-        plex.local:
+        deluge.boston.grantcohoe.com:
+#        couchpotato.local:
+#        deluge.local:
+#        homeassistant.local:
+#        unifi.local:
+#        puppet.local:
+#        lancache.local:
+#        sickchill.local:
+#        plex.local:

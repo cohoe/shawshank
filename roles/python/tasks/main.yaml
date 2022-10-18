@@ -2,16 +2,8 @@
 - name: install common python
   package:
     name:
-      - python2
-      - python37
+      - python39
     state: present
-
-# https://www.python.org/dev/peps/pep-0394/
-- name: link version
-  file:
-    src: /usr/local/bin/python2
-    dest: /usr/local/bin/python
-    state: link
 
 - name: link system
   file:
@@ -22,13 +14,9 @@
 - name: install python tools
   package:
     name:
-      - py27-pip
-      - py37-pip
-      - py27-virtualenv
-      - py37-virtualenv
-      - py27-virtualenvwrapper
-      - py37-sqlite3
-      - py27-sqlite3
+      - py39-pip
+      - py39-virtualenv
+      - py39-sqlite3
     state: present
 
 # @TODO . /usr/local/bin/virtualenvwrapper.sh
