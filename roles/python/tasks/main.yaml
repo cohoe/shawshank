@@ -5,11 +5,11 @@
       - python39
     state: present
 
-- name: link system
-  file:
-    src: /usr/local/bin/python
-    dest: /usr/bin/python
-    state: link
+#- name: link system
+#  file:
+#    src: /usr/local/bin/python
+#    dest: /usr/bin/python
+#    state: link
 
 - name: install python tools
   package:
