@@ -2,7 +2,7 @@
 - name: system tools
   package:
     name:
-      - vim-console
+      - vim
       - git
       - wget
       - gtar
